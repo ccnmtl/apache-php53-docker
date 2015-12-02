@@ -1,4 +1,4 @@
-# based on https://registry.hub.docker.com/u/former03/dev03-apache-php-5.2-squeeze/dockerfile/
+# based on https://hub.docker.com/r/welovecloud/apache-php53/
 
 FROM welovecloud/apache-php53:latest
 MAINTAINER ccnmtl <ccnmtl-sysadmin@columbia.edu>
