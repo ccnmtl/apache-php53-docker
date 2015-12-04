@@ -7,7 +7,10 @@ build:
 	docker build ${NOCACHE} -t ${APACHE_PHP53_NAME} .
 
 run:
-	docker run -d -p 8011:80 --name ${APACHE_PHP53_NAME} ${APACHE_PHP53_TAG}
+	docker run -d -p 8011:80 --name apache-php53 \
+	-v /usr/local/share/sandboxes/common/drupal5_sites/:/var/www/drupal \
+	-v /var/log/docker/apache-php53/logs:/var/www/logs \
+	apache-php53
 
 pull:
 	docker pull ${APACHE_PHP53_TAG}
