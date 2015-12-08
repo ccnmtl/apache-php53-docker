@@ -11,9 +11,11 @@ RUN apt-get update && \
 COPY ./files/drupal5s.conf /etc/apache2/sites-enabled/drupal5s.conf
 
 # clone and compile mod_auth_cas since the packaged version doesn't support saml
-RUN cd /usr/local/src && git clone https://github.com/Jasig/mod_auth_cas.git 
+RUN cd /usr/local/src &&\
+    git clone https://github.com/Jasig/mod_auth_cas.git && \
+		cd mod_auth_cas && \
+		git checkout b68a2aad
 WORKDIR /usr/local/src/mod_auth_cas
-RUN git checkout b68a2aad
 RUN ./configure; make; make install
 
 # make sure teh CASCookiePath exists
